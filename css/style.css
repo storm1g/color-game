@@ -7,6 +7,10 @@ h1 {
   text-align: center;
 }
 
+span {
+  color: white;
+}
+
 #container {
   margin: 0 auto;
   max-width: 600px;
