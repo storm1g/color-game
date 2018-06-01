@@ -1,14 +1,26 @@
 body {
   background-color: #232323;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
   color: white;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1.2;
+  background-color: steelblue;
+  margin: 0;
+  padding: 20px 0;
+}
+
+#colorDisplay {
+  font-size: 200%;
 }
 
 #container {
-  margin: 0 auto;
+  margin: 20px auto;
   max-width: 600px;
 }
 
@@ -18,16 +30,42 @@ h1 {
   text-align: center
 }
 
-.square {
-  width: 30%;
-  background-color: purple;
-  padding-bottom: 30%;
-  float: left;
-  margin: 1.66%;
+#msg {
+  display: inline-block;
+  width: 20%;
 }
 
+button {
+  color: steelblue;
+  font-weight: 700;
+  font-size: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  outline: none;
+  background: none;
+  height: 100%;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+}
+
+button:hover,
 .selected {
-  background-color: blue;
+  background-color: steelblue;
+  color: white;
+}
+
+.square {
+  background-color: purple;
+  border-radius: 15%;
+  width: 30%;
+  float: left;
+  margin: 1.66%;
+  padding-bottom: 30%;
+  transition: background 0.6s;
+  -webkit-transition: background 0.6;
+  -moz-transition: background 0.6;
 }
 
 .hidden {

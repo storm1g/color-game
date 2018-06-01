@@ -23,8 +23,9 @@ easyBtn.addEventListener("click", function(){
       squares[i].classList.add("hidden");
     }
   }
-  h1.style.backgroundColor = "#232323";
+  h1.style.backgroundColor = "steelblue";
   resetBtn.textContent = "New Colors";
+  msgDisplay.textContent = "";
 });
 
 hardBtn.addEventListener("click", function(){
@@ -38,8 +39,9 @@ hardBtn.addEventListener("click", function(){
       squares[i].style.backgroundColor = colors[i];
       squares[i].classList.remove("hidden");
   }
-  h1.style.backgroundColor = "#232323";
+  h1.style.backgroundColor = "steelblue";
   resetBtn.textContent = "New Colors";
+  msgDisplay.textContent = "";
 });
 
 resetBtn.addEventListener("click", function(){
@@ -53,8 +55,9 @@ resetBtn.addEventListener("click", function(){
   for (var i = 0; i < squares.length; i++){
     squares[i].style.backgroundColor = colors[i];
   }
-  h1.style.backgroundColor = "#232323";
+  h1.style.backgroundColor = "steelblue";
   resetBtn.textContent = "New Colors";
+  msgDisplay.textContent = "";
 });
 
 colorDisplay.textContent = pickedColor;
