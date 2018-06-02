@@ -25,6 +25,10 @@ h1 {
 }
 
 #stripe {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: auto; */
   background-color: white;
   height: 30px;
   text-align: center
@@ -33,6 +37,10 @@ h1 {
 #msg {
   display: inline-block;
   width: 20%;
+}
+
+#stripe br {
+  display: none;
 }
 
 button {
@@ -70,4 +78,32 @@ button:hover,
 
 .hidden {
   display: none;
+}
+
+@media only screen and (min-width : 320px) and (max-width: 480px){
+  h1 {
+    font-size: 1.5rem;
+    padding: 15px 0;
+    line-height: 1.3;
+  }
+  
+  #colorDisplay {
+    font-size: 2.2rem;
+  }
+
+  #stripe {
+    height: 60px;
+  }
+
+  button {
+    height: 50%;
+  }
+
+  #msg {
+    width: 40%
+  }
+
+  #stripe br {
+    display: block;
+  }
 }
