@@ -23,10 +23,13 @@ function init(){
 function setupModeButtons(){
   for (var i = 0; i < modeBtns.length; i++){
     modeBtns[i].addEventListener("click", function(){
-      modeBtns[0].classList.remove("selected");
-      modeBtns[1].classList.remove("selected");
+      for (var j = 0; j < modeBtns.length; j++){
+        modeBtns[j].classList.remove("selected");
+      }
       this.classList.add("selected");
-      this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
+      this.textContent === "Easy" ? numSquares = 3
+        : this.textContent === "Normal" ? numSquares = 6
+        : numSquares = 9;
       reset();
     });
   }
