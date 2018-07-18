@@ -1,12 +1,18 @@
-var numSquares = 6;
-var colors = [];
-var pickedColor;
-var squares = document.querySelectorAll(".square");
-var colorDisplay = document.getElementById("colorDisplay");
-var msgDisplay = document.getElementById("msg");
-var h1 = document.querySelector("h1");
-var resetBtn = document.querySelector("#reset");
-var modeBtns = document.querySelectorAll(".mode");
+// Global variables
+let numSquares = 6;
+let colors = [];
+let pickedColor;
+
+// DOM elements
+const squares = document.querySelectorAll(".square");
+const colorDisplay = document.getElementById("colorDisplay");
+const msgDisplay = document.getElementById("msg");
+const h1 = document.querySelector("h1");
+const resetBtn = document.querySelector("#reset");
+const modeBtns = document.querySelectorAll(".mode");
+const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal");
+
 
 init();
 
@@ -18,12 +24,13 @@ function init(){
   resetBtn.addEventListener("click", function(){
     reset();
   });
+  // overlay.addEventListener("click", toggleOverlay);
 }
 
 function setupModeButtons(){
-  for (var i = 0; i < modeBtns.length; i++){
+  for (let i = 0; i < modeBtns.length; i++){
     modeBtns[i].addEventListener("click", function(){
-      for (var j = 0; j < modeBtns.length; j++){
+      for (let j = 0; j < modeBtns.length; j++){
         modeBtns[j].classList.remove("selected");
       }
       this.classList.add("selected");
@@ -36,7 +43,7 @@ function setupModeButtons(){
 }
 
 function setupSquares(){
-  for (var i = 0; i < squares.length; i++){
+  for (let i = 0; i < squares.length; i++){
     //add click listeners to squares
     squares[i].addEventListener("click", function(){
       //grab color of clicked square
@@ -47,6 +54,7 @@ function setupSquares(){
         changeColors(clickedColor);
         h1.style.backgroundColor = clickedColor;
         resetBtn.textContent = "Play Again?";
+        setTimeout(toggleOverlay, 1000);
       } else {
         this.style.backgroundColor = "#232323";
         msgDisplay.textContent = "Try again";
@@ -65,7 +73,7 @@ function reset(){
   resetBtn.textContent = "New Colors";
   msgDisplay.textContent = "";
   //change colors of squares
-  for (var i = 0; i < squares.length; i++){
+  for (let i = 0; i < squares.length; i++){
     if (colors[i]){
       squares[i].classList.remove("hidden");
       squares[i].style.backgroundColor = colors[i];
@@ -77,9 +85,9 @@ function reset(){
 
 function generateColors(num){
   //make an array
-  var arr = []
+  let arr = []
   //add num random colors to array
-  for (var i = 0; i < num; i++){
+  for (let i = 0; i < num; i++){
     //get random color and push into array
     arr.push(randomColor());
   }
@@ -88,20 +96,35 @@ function generateColors(num){
 }
 
 function randomColor(){
-  var r = Math.floor(Math.random() * 256);
-  var g = Math.floor(Math.random() * 256);
-  var b = Math.floor(Math.random() * 256);
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
   return "rgb(" + r + ", " + g + ", " + b + ")";
 }
 
 function pickColor(){
-  var random = Math.floor(Math.random() * colors.length);
+  let random = Math.floor(Math.random() * colors.length);
   return colors[random];
 }
 
 function changeColors(color) {
   //loop through all squares
-  for (var i = 0; i < squares.length; i++){
+  for (let i = 0; i < squares.length; i++){
     squares[i].style.backgroundColor = color;
   }
 }
+
+function toggleOverlay(){
+  if (!overlay.classList[1]){
+    overlay.classList.toggle("open");
+    setTimeout(function(){
+      modal.classList.toggle("open");
+    }, 500);
+  } else {
+    modal.classList.toggle("open");
+    setTimeout(function(){
+      overlay.classList.toggle("open");
+    }, 500);
+  }
+}
+
