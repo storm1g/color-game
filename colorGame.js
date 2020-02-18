@@ -2,6 +2,7 @@
 let numSquares = 6;
 let colors = [];
 let pickedColor;
+let tries = 0;
 
 // DOM elements
 const squares = document.querySelectorAll(".square");
@@ -54,7 +55,7 @@ function setupSquares(){
         changeColors(clickedColor);
         h1.style.backgroundColor = clickedColor;
         resetBtn.textContent = "Play Again?";
-        setTimeout(toggleOverlay, 1000);
+        // setTimeout(toggleOverlay, 1000);
       } else {
         this.style.backgroundColor = "#232323";
         msgDisplay.textContent = "Try again";
@@ -114,17 +115,17 @@ function changeColors(color) {
   }
 }
 
-function toggleOverlay(){
-  if (!overlay.classList[1]){
-    overlay.classList.toggle("open");
-    setTimeout(function(){
-      modal.classList.toggle("open");
-    }, 500);
-  } else {
-    modal.classList.toggle("open");
-    setTimeout(function(){
-      overlay.classList.toggle("open");
-    }, 500);
-  }
-}
+// function toggleOverlay(){
+//   if (!overlay.classList[1]){
+//     overlay.classList.toggle("open");
+//     setTimeout(function(){
+//       modal.classList.toggle("open");
+//     }, 500);
+//   } else {
+//     modal.classList.toggle("open");
+//     setTimeout(function(){
+//       overlay.classList.toggle("open");
+//     }, 500);
+//   }
+// }
 
